@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,19 +9,36 @@
     <link rel="stylesheet" href="{{asset('css/common.css')}}">
 </head>
 @yield('css')
+
 <body>
-    <div class="header__inner">
-        <header class="header">
-            <h2>FashionablyLate</h2>
-        </header>
-        <nav class="header__nav">
-            <ul>
-                <li><a href="/register">register</a></li>
-                <li><a href="/login">test</a></li>
-            </ul>
-        </nav>
-    </div>
-@yield('content')
-    
+
+    <head class="header">
+        <div class="header__inner">
+            <div class="header__text">
+                <h2>FashionablyLate</h2>
+            </div>
+            <nav class="header__nav">
+                <ul>
+                    @if(Auth::check())
+                    <li>
+                        <form action="/logout" method="post">
+                            @csrf
+                            <button type="submit">logout</button>
+                        </form>
+                    </li>
+
+                    @elseif(Request::is('register'))
+                    <li><a href="/login">login</a></li>
+
+                    @else
+                    <li><a href="/register">register</a></li>
+                    @endif
+                </ul>
+            </nav>
+        </div>
+        <header>
+            @yield('content')
+
 </body>
+
 </html>

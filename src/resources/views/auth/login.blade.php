@@ -4,10 +4,24 @@
 @endsection
 
 @section('content')
+
+<div class="alert__danger">
+@if($errors->any())
+<ul>
+    @foreach($errors->all() as $error)
+    <li>{{$error}}</li>
+    @endforeach
+</ul>
+@endif
+
+
+</div>
+
+
 <div class="login-content">
     <h2>Login</h2>
 
-    <form action="/login" method="post" class="login-form__inner">
+    <form action="/login" method="post" class="login-form__inner" novalidate>
         <div class="login-form">
             @csrf
             <p class="form__text">メールアドレス</p>

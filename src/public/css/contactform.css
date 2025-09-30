@@ -1,0 +1,150 @@
+.contact__content {
+    width: 100%;
+    border-top: 1px solid #f3f3f2;
+
+}
+
+.contact__content--header {
+    width: 100%;
+    color: black;
+    margin: 35px auto;
+    text-align: center;
+    color: #99897b;
+}
+
+.contact-form {
+    width: 55%;
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+.content__item {
+    display: flex;
+    width: 100%;
+    margin: 0px auto;
+}
+
+/* label */
+.row2>label:first-of-type,
+.content__item>label:first-of-type,
+.tel__label{
+    display: inline-block;
+    width: 250px;
+    padding: 5px;
+}
+
+label {
+    text-align: left;
+    color: #99897c;
+}
+
+
+
+span {
+    color: rgb(251, 172, 172);
+    margin-left: 5px;
+}
+
+.content__item input {
+    flex: 1;
+}
+
+/* 1行 */
+.contact-form__email,
+.contact-form__address,
+.contact-form__building,
+.contact-form__detail {
+    width: 80%;
+}
+
+.contact-form__detail {
+    height: 200px;
+}
+
+/* mail */
+.content__item .contact-form__item--name:nth-of-type(2) {
+    margin-left: 100px;
+}
+
+/* tel */
+.content__item .cotanct-form__item__tell:nth-of-type(2),
+.content__item .cotanct-form__item__tell:nth-of-type(3) {
+    margin-left: 100px;
+}
+
+.content__item___tel{
+    display: flex;
+    margin-top: 20px;
+}
+.tel__input{
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.tel__space{
+    color: #b7aca1;
+}
+
+
+/* category */
+.content__item select {
+    width: 50%;
+}
+
+.content__item p {
+    text-align: center;
+}
+
+/* gender */
+.row2 {
+    display: flex;
+    width: 70%;
+}
+
+/* radio */
+
+.my-radio {
+    accent-color: #8b7969;
+    inline-size: 1.5rem;
+    block-size: 1.0rem;
+    margin-left: 50px;
+}
+
+.content__item,
+.row2 {
+    margin-top: 20px;
+}
+
+/* input */
+input,
+.content__item textarea,
+.content__item select {
+    outline: none;
+    border: none;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    color: #d2cac3;
+    padding: 10px;
+}
+
+/* button */
+.contact-form__button{
+    width: 13%;
+    margin: 30px auto;
+    background-color: red;
+}
+
+.contact-form__button--submit{
+    width: 100%;
+    padding: 15px;
+    background: #82756a;
+    cursor: pointer;
+    color: white;
+    border: none;
+    border-radius: 2px;
+}
+

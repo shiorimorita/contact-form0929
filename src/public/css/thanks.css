@@ -1,0 +1,44 @@
+.thanks__content {
+
+    position: relative;
+    height: 50vh;
+    /* 高さを指定して中央に余裕を作る */
+    display: flex;
+    justify-content: center;
+    /* 横中央 */
+    align-items: center;
+    /* 縦中央 */
+    text-align: center;
+}
+
+p {
+    color: #83776d;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.thanks__overlay {
+    position: absolute;
+    font-size: 10rem;
+    color: rgba(0, 0, 0, 0.1);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.home__button{
+    width: 5%;
+    margin: 0 auto;
+}
+
+.home__button a{
+    display: block;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background-color: #82766a;
+    cursor: pointer;
+}

@@ -4,10 +4,22 @@
 @endsection
 
 @section('content')
+
+<div class="alert__danger">
+    @if($errors->any())
+    <ul>
+    @foreach($errors->all() as $error)
+    <li>{{$error}}</li>
+    @endforeach
+    </ul>
+    @endif
+</div>
+
+
 <div class="register-content">
     <h2>Register</h2>
 
-    <form action="/register" method="post" class="register-form__inner">
+    <form action="/register" method="post" class="register-form__inner" novalidate>
         <div class="register-form">
             @csrf
             <p class="form__text">お名前</p>
