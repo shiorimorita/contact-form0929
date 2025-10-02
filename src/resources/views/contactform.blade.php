@@ -51,7 +51,7 @@
         <div class="content__item">
             <label for="" class="">メールアドレス<span>※</span></label>
             <input type="email" name="email" class="contact-form__email" placeholder="例: test@example.com"
-                value="{{old('email',('contact_form-input.email')) ?? ''}}">
+                value="{{old('email',session('contact_form-input.email')) ?? ''}}">
         </div>
         <div class="form__error">
             @error('email')

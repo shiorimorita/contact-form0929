@@ -27,8 +27,8 @@ class ContactController extends Controller
         /* 入力内容の保持 */
 
         $input=$request->all();
-        session(['contact_form-input' =>$input]);
-        session(['contact_form-telparts'=>$input['tel']]);
+        session()->flash('contact_form-input', $input);
+        session()->flash('contact_form-telparts', $input['tel']);
 
         $confirm=$request->only(['first_name','last_name','gender','email','address','detail','building','category_id']);
 

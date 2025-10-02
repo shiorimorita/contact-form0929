@@ -76,4 +76,98 @@ class ContactController extends Controller
 
         return view('index',compact('contacts','categories'));
     }
+
+    /* csv export */
+    public function exportCsv(){
+    $items = Contact::with('category')->get();
+    $filename = 'contact_list_' . date('Y-m-d_His') . '.csv';
+
+    $headers = [
+        'Content-Type' => 'text/csv',
+        'Content-Disposition' => "attachment; filename={$filename}",
+        'Pragma' => 'no-cache',
+        'Cache-Control' => 'must-revalidate, post-check=0, pre-check=0',
+        'Expires' => '0'
+    ];
+
+    $callback = function() use ($items) {
+        $file = fopen('php://output', 'w');
+
+        fprintf($file, chr(0xEF).chr(0xBB).chr(0xBF));
+
+        // ヘッダー行を入れる場合
+        fputcsv($file, ['お問合せ日時','お問い合わせの種類','名前','性別','メールアドレス','電話番号','住所','建物名','お問合せ内容']);
+
+        foreach($items as $item){
+            fputcsv($file, [
+                $item->created_at,
+                $item->category ? $item->category->content : '',
+                $item->last_name. '  ' . $item->first_name,
+                $item->gender==1 ? '男性' : ($item->gender==2 ? '女性' : 'その他'),
+                $item->email,
+                $item->tel,
+                $item->address,
+                ! empty($item->building) ? $item->building : '',
+                $item->detail,
+            ]);
+        }
+
+        fclose($file);
+    };
+
+    return response()->stream($callback, 200, $headers);
+}
+
+/* csv import */
+
+public function importCsv(Request $request)
+{
+    $file=$request->file('csvFile');
+    $path=$file->getRealPath();
+
+    $fp=fopen($path,'r');
+    $header=fgetcsv($fp);
+    if($header){
+        $header[0]=preg_replace('/^\xEF\xBB\xBF/','',$header[0]);
+    }
+
+    while(($csvData=fgetcsv($fp)) !==false)
+    {
+        $last_name=$csvData[0];
+        $first_name=$csvData[1];
+        $gender=$csvData[2];
+        $email=$csvData[3];
+        $tel=$csvData[4];
+        $address=$csvData[5];
+        $detail=$csvData[6];
+        $category_id=$csvData[7];
+
+        if(empty($last_name) || empty($first_name) ||empty($email)){
+            continue;
+        }
+
+        $contact=new \App\Models\Contact();
+        $contact->first_name=$first_name;
+        $contact->last_name=$last_name;
+        $contact->gender=$gender;
+        $contact->email=$email;
+        $contact->tel=$tel;
+        $contact->address=$address;
+        $contact->detail=$detail;
+        $contact->category_id=$category_id;
+        $contact->save();
+    }
+
+
+
+    fclose($fp);
+
+    return redirect('/admin');
+
+    
+
+}
+
+
+
 }
