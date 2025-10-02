@@ -16,6 +16,16 @@ class ContactFactory extends Factory
     {
         $this->faker=\Faker\Factory::create('ja_JP');
 
+        $category_id=$this->faker->numberBetween(1,5);
+
+        $details=[
+             1 => '商品の商品のお届けについての詳細です。',
+        2 => '商品の交換についての詳細です。',
+        3 => '商品トラブルの詳細です。',
+        4 => 'ショップへのお問い合わせ内容です。',
+        5 => 'その他のお問い合わせ内容です。',
+        ];
+
         return [
             'first_name'=>$this->faker->firstName(),
             'last_name'=>$this->faker->lastName(),
@@ -24,15 +34,9 @@ class ContactFactory extends Factory
             'tel'=>$this->faker->phoneNumber(),
             'address'=>$this->faker->streetAddress(),
             'building'=>$this->faker->optional()->secondaryAddress(),
-            'category_id'=>$this->faker->numberBetween(1,5),
-            'detail'=>$this->faker->randomElement([
-            '商品の商品のお届けについての詳細です。',
-            '商品の交換についての詳細です。',
-            '商品トラブルの詳細です。',
-            'ショップへのお問い合わせ内容です。',
-            'その他のお問い合わせ内容です。',
-            ]),
+            'category_id'=>$category_id,
+            'detail'=>$details[$category_id],
+            ];
 
-        ];
     }
 }

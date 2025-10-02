@@ -19,13 +19,9 @@ Route::get('/', function () {
     return view('contactform');
 });
 
-// Route::get('/login',function(){
-//     return view('auth.login');
-// });
-
 /* auth check */
 Route::middleware('auth')->group(function(){
-    Route::get('/admin',[ContactController::class,'index']);
+    Route::get('/admin',[ContactController::class,'allsearch']);
 });
 
 
@@ -36,3 +32,13 @@ Route::post('/confirm',[ContactController::class,'confirm']);
 
 Route::post('/thanks',[ContactController::class,'create']);
 Route::get('/',[ContactController::class,'contact']);
+
+/* delete */
+Route::delete('/admin',[ContactController::class,'delete']);
+
+/* search */
+// Route::get('/admin',[ContactController::class,'allsearch']);
+
+/* csv */
+Route::get('/csv/export',[ContactController::class,'exportCsv']);
+Route::post('/csv/import',[ContactController::class,'importCsv']);

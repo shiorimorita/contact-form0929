@@ -5,18 +5,6 @@
 
 @section('content')
 
-<div class="alert__danger">
-@if($errors->any())
-<ul>
-    @foreach($errors->all() as $error)
-    <li>{{$error}}</li>
-    @endforeach
-</ul>
-@endif
-
-
-</div>
-
 
 <div class="login-content">
     <h2>Login</h2>
@@ -26,9 +14,15 @@
             @csrf
             <p class="form__text">メールアドレス</p>
             <input type="email" name="email" class="form__text--input" placeholder="例: test@example.com">
+            @error('email')
+            <p class="danger__alert--message">{{$message}}</p>
+            @enderror
 
             <p class="form__text">パスワード</p>
             <input type="password" name="password" class="form__text--input" placeholder="例: coachtech1106">
+            @error('password')
+            <p class="danger__alert--message">{{$message}}</p>
+            @enderror
 
             <div class="login-form__button">
                 <button type="submit" class="login-form__button--submit">ログイン</button>

@@ -52,7 +52,7 @@
             </tr>
             <tr>
                 <th class="confirm__header"></th>
-                <td> <textarea id="" name="detail" readonly>{{$confirm['detail']}}</textarea></td>
+                <td> <textarea id="" name="detail" readonly cols="60" rows="5">{{$confirm['detail']}}</textarea></td>
             </tr>
         </table>
         

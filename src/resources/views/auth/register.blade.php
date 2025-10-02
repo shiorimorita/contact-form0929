@@ -5,17 +5,6 @@
 
 @section('content')
 
-<div class="alert__danger">
-    @if($errors->any())
-    <ul>
-    @foreach($errors->all() as $error)
-    <li>{{$error}}</li>
-    @endforeach
-    </ul>
-    @endif
-</div>
-
-
 <div class="register-content">
     <h2>Register</h2>
 
@@ -25,12 +14,22 @@
             <p class="form__text">お名前</p>
             <input type="text" name="name" class="form__text--input" placeholder="例: 山田  太郎">
 
+                @error('name')
+                <p class="danger__alert--message"> {{$message}}
+                @enderror
+                </p>
+
             <p class="form__text">メールアドレス</p>
             <input type="email" name="email" class="form__text--input" placeholder="例: test@example.com">
+            @error('email')
+            <p class="danger__alert--message">{{$message}}</p>
+            @enderror
 
             <p class="form__text">パスワード</p>
             <input type="password" name="password" class="form__text--input" placeholder="例: coachtech1106">
-
+            @error('password')
+            <p class="danger__alert--message">{{$message}}</p>
+            @enderror
             <div class="register-form__button">
                 <button type="submit" class="register-form__button--submit">登録</button>
             </div>

@@ -23,14 +23,14 @@
                     <li>
                         <form action="/logout" method="post">
                             @csrf
-                            <button type="submit">logout</button>
+                            <button type="submit" class="logout__button">logout</button>
                         </form>
                     </li>
 
                     @elseif(Request::is('register'))
                     <li><a href="/login">login</a></li>
 
-                    @else
+                    @elseif(Request::is('login'))
                     <li><a href="/register">register</a></li>
                     @endif
                 </ul>

@@ -28,7 +28,7 @@
 /* label */
 .row2>label:first-of-type,
 .content__item>label:first-of-type,
-.tel__label{
+.tel__label {
     display: inline-block;
     width: 250px;
     padding: 5px;
@@ -62,6 +62,7 @@ span {
     height: 200px;
 }
 
+
 /* mail */
 .content__item .contact-form__item--name:nth-of-type(2) {
     margin-left: 100px;
@@ -73,11 +74,12 @@ span {
     margin-left: 100px;
 }
 
-.content__item___tel{
+.content__item___tel {
     display: flex;
     margin-top: 20px;
 }
-.tel__input{
+
+.tel__input {
     width: 100%;
     align-items: center;
     display: flex;
@@ -85,7 +87,7 @@ span {
     flex: 1;
 }
 
-.tel__space{
+.tel__space {
     color: #b7aca1;
 }
 
@@ -127,18 +129,17 @@ input,
     border: none;
     background-color: #f4f4f4;
     border-radius: 5px;
-    color: #d2cac3;
-    padding: 10px;
+    color: black;
+    padding: 8px;
 }
 
 /* button */
-.contact-form__button{
+.contact-form__button {
     width: 13%;
     margin: 30px auto;
-    background-color: red;
 }
 
-.contact-form__button--submit{
+.contact-form__button--submit {
     width: 100%;
     padding: 15px;
     background: #82756a;
@@ -148,3 +149,25 @@ input,
     border-radius: 2px;
 }
 
+/* error */
+
+.form__error--name {
+    color: rgb(251, 172, 172);
+    font-size: 12px;
+    min-height: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 57%;
+    margin: 0 auto;
+}
+
+.form__error {
+    color: rgb(251, 172, 172);
+    font-size: 12px;
+    min-height: 20px;
+}
+
+.error__message--last_name {
+    margin-right: 10px;
+
+}

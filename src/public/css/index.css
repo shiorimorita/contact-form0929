@@ -1,3 +1,193 @@
-.search__content{
+.header {
+    border-top: 1px solid #c6bfb6;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    color: #c6bfb6;
+}
+
+.search__content {
     display: flex;
+    width: 70%;
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+}
+
+/* width */
+
+.search__content--input {
+    width: 30%;
+}
+
+.search__content--gender {
+    width: 5%;
+}
+
+.search__content--category {
+    width: 15%;
+}
+
+.search__content--date {
+    width: 8%;
+}
+
+.search__button,
+.search__reset {
+    width: 8%;
+    margin-right: 10px;
+    padding: 8px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    color: white;
+}
+
+/* height */
+.search__content--input,
+.search__content--gender,
+.search__content--category,
+.search__content--date {
+    height: 40px;
+    margin-right: 10px;
+    opacity: 0.7;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+}
+
+.search__button {
+    background-color: #82766a;
+}
+
+.search__reset {
+    background-color: #dbc4b4;
+}
+
+/* fanction content */
+
+.function__content {
+    display: flex;
+    width: 55%;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    margin: 25px auto;
+}
+
+.export__button {
+    width: 100%;
+    padding: 7px 5px;
+    background: #edeae5;
+    border: none;
+    color: #bbb6a9;
+    cursor: pointer;
+}
+
+.csv__import--button {
+    width: 15%;
+    background: #edeae5;
+    border: none;
+    padding: 7px 5px;
+    color: #bbb6a9;
+    cursor: pointer;
+}
+
+.csv-import {
+    display: flex;
+    width: 55%;
+    align-items: center;
+}
+
+
+.table {
+    width: 55%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* header name */
+
+th:first-of-type {
+    width: 15%;
+    padding: 10px 30px;
+}
+
+
+/* header gender */
+th:nth-child(2) {
+    width: 15%;
+    padding: 10px 30px;
+}
+
+/* header email */
+th:nth-child(3) {
+    width: 25%;
+}
+
+/* header category */
+th:nth-child(4) {
+    width: 30%;
+}
+
+.detail__button {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    background-color: white;
+    color: #bbb6a9;
+    cursor: pointer;
+}
+
+th {
+    background: rgb(192, 167, 144);
+    color: white;
+}
+
+tr td {
+    padding: 15px 30px;
+    color: rgb(156, 147, 144);
+}
+
+tr th,
+tr td {
+    border-bottom: 1px solid rgb(218, 200, 183);
+}
+
+
+.name-gap {
+    display: inline-block;
+    width: 12px;
+}
+
+svg.w-5.h-5 {
+    width: 30px;
+    height: 30px;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+
+}
+
+.pagination li a {
+    display: block;
+    text-decoration: none;
+    color: #d58e1b;
+    width: 30px;
+    border: 1px solid #ddd;
+}
+
+.pagination .active .page-link {
+    display: block;
+    background-color: rgb(210, 131, 56);
+    color: #fff;
+    border-color: rgb(210, 131, 56);
+    width: 30px;
+    border: 1px solid #ddd;
+}
+
+.pagination li a:hover {
+    background-color:rgb(136, 111, 89);
 }
