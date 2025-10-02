@@ -13,22 +13,22 @@
     <!-- search -->
     <form action="/admin" method="get">
         <div class="search__content">
-            <input type="text" name="name_email" placeholder="名前やメールアドレスを入力してください" class="search__content--input">
+            <input type="text" name="name_email" placeholder="名前やメールアドレスを入力してください" class="search__content--input" value="{{request('name_email')?? ''}}">
 
             <select name="gender" id="" class="search__content--gender">
                 <option value="" disabled selected>性別</option>
-                <option value="0">全て</option>
-                <option value="1">男性</option>
-                <option value="2">女性</option>
-                <option value="3">その他</option>
+                <option value="0" {{request('gender')=== '0' ? 'selected' : ''}}>全て</option>
+                <option value="1"{{request('gender')==='1' ? 'selected' : ''}}>男性</option>
+                <option value="2" {{request('gender')=== '2' ? 'selected' : ''}}>女性</option>
+                <option value="3" {{request('gender')=== '3' ? 'selected': ''}}>その他</option>
             </select>
             <select name="category_content" id="" class="search__content--category">
                 <option value="" disabled selected class="">お問い合わせの種類</option>
                 @foreach($categories as $category)
-                <option value="{{$category->content}}">{{$category->content}}</option>
+                <option value="{{$category->content}}" {{request('category_content')===$category->content ? 'selected' : ''}}>{{$category->content}}</option>
                 @endforeach
             </select>
-            <input type="date" class="search__content--date" name="date">
+            <input type="date" class="search__content--date" name="date" value="{{request('date') ?? ''}}">
 
             <button type="submit" class="search__button">検索</button>
             <button type="button" class="search__reset" onclick="window.location.href='/admin'">リセット</button>

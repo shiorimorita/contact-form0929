@@ -14,9 +14,9 @@
         <div class="content__item">
             <label for="">お名前<span>※</span></label>
             <input type="text" name="last_name" class="contact-form__item--name" placeholder="例: 山田"
-                value="{{session('contact_form-input.last_name')}}">
+                value="{{old('last_name', session('contact_form-input.last_name'))}}">
             <input type="text" name="first_name" class="contact-form__item--name" placeholder="例: 太郎"
-                value="{{session('contact_form-input.first_name')}}">
+                value="{{old('first_name',session('contact_form-input.first_name'))}}">
         </div>
         <div class="form__error--name">
             @error('first_name')
@@ -30,15 +30,15 @@
         <div class="row2">
             <label class="form-label">性別<span>※</span></label>
             <label for="">
-                <input type="radio" name="gender" value="1" class="my-radio" {{session('contact_form-input.gender')==1
+                <input type="radio" name="gender" value="1" class="my-radio" {{old('gender',session('contact_form-input.gender'))==1
                     ? 'checked' : '' }}>男性
             </label>
             <label for="">
-                <input type="radio" name="gender" value="2" class="my-radio" {{ session('contact_form-input.gender')==2
+                <input type="radio" name="gender" value="2" class="my-radio" {{ old('gender',session('contact_form-input.gender'))==2
                     ? 'checked' : '' }}>女性
             </label>
             <label for="">
-                <input type="radio" name="gender" value="3" class="my-radio" {{ session('contact_form-input.gender')==3
+                <input type="radio" name="gender" value="3" class="my-radio" {{ old('gender',session('contact_form-input.gender'))==3
                     ? 'checked' : '' }}>その他
             </label>
         </div>
@@ -51,7 +51,7 @@
         <div class="content__item">
             <label for="" class="">メールアドレス<span>※</span></label>
             <input type="email" name="email" class="contact-form__email" placeholder="例: test@example.com"
-                value="{{session('contact_form-input.email') ?? ''}}">
+                value="{{old('email',('contact_form-input.email')) ?? ''}}">
         </div>
         <div class="form__error">
             @error('email')
@@ -67,11 +67,11 @@
                 $telParts = session('contact_form-telparts', []); 
                 @endphp
 
-                <input type="tel" name="tel[]" class="cotanct-form__item__tell" placeholder="080" value="{{$telParts[0] ?? ''}}">
+                <input type="tel" name="tel[]" class="cotanct-form__item__tell" placeholder="080" value="{{old('tel.0',$telParts[0] ?? '')}}">
                 <div class="tel__space">-</div>
-                <input type="tel" name="tel[]" class="cotanct-form__item__tell" placeholder="1234" value="{{$telParts[1] ?? ''}}">
+                <input type="tel" name="tel[]" class="cotanct-form__item__tell" placeholder="1234" value="{{old('tel.1',$telParts[1] ?? '')}}">
                 <div class="tel__space">-</div>
-                <input type="tel" name="tel[]" class="cotanct-form__item__tell" placeholder="5678" value="{{$telParts[2] ?? ''}}">
+                <input type="tel" name="tel[]" class="cotanct-form__item__tell" placeholder="5678" value="{{old('tel.2',$telParts[2] ?? '')}}">
             </div>
         </div>
         <div class="form__error">
@@ -83,7 +83,7 @@
         <div class="content__item">
             <label for="" class="">住所<span>※</span></label>
             <input type="text" name="address" class="contact-form__address" placeholder="例: 東京都渋谷区千駄ヶ谷1-2-3"
-                value="{{session('contact_form-input.address')}}">
+                value="{{old('address',session('contact_form-input.address'))}}">
         </div>
         <div class="form__error">
             @error('address')
@@ -95,7 +95,7 @@
         <div class="content__item">
             <label for="" class="">建物名</label>
             <input type="text" name="building" class="contact-form__building" placeholder="例: 千駄ヶ谷マンション101"
-                value="{{session('contact_form-input.building')}}">
+                value="{{old('building',session('contact_form-input.building'))}}">
         </div>
 
         <div class="content__item">
@@ -103,7 +103,7 @@
             <select name="category_id" id="">
                 <option value="" disabled selected>選択してください</option>
                 @foreach($categories as $category)
-                <option value="{{ $category->id }}" {{ session('contact_form-input.category_id')==$category->id ?
+                <option value="{{ $category->id }}" {{ old('category_id',session('contact_form-input.category_id'))==$category->id ?
                     'selected' : '' }}>
                     {{ $category->content }}
                 </option> @endforeach
@@ -119,7 +119,7 @@
         <div class="content__item">
             <label for="">お問い合わせ内容<span>※</span></label>
             <textarea name="detail" id="" class="contact-form__detail" placeholder="お問い合わせ内容をご記載ください" cols="40"
-                rows="5">{{session('contact_form-input.detail')}}</textarea>
+                rows="5">{{old('detail',session('contact_form-input.detail'))}}</textarea>
         </div>
         <div class="form__error">
             @error('detail')
