@@ -152,22 +152,26 @@ input,
 /* error */
 
 .form__error--name {
+    display: flex;
+    margin-left: 250px;
     color: rgb(251, 172, 172);
     font-size: 12px;
     min-height: 20px;
-    display: flex;
-    justify-content: space-between;
-    width: 57%;
-    margin: 0 auto;
 }
+
+.form__error--last_name {
+    width: 41%;
+    margin-right: 105px
+}
+
+.form__error--first_name{
+        width: 41%;
+}
+
+
 
 .form__error {
     color: rgb(251, 172, 172);
     font-size: 12px;
     min-height: 20px;
-}
-
-.error__message--last_name {
-    margin-right: 10px;
-
 }

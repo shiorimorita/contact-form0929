@@ -18,28 +18,35 @@
             <input type="text" name="first_name" class="contact-form__item--name" placeholder="例: 太郎"
                 value="{{old('first_name',session('contact_form-input.first_name'))}}">
         </div>
+
+
         <div class="form__error--name">
-            @error('first_name')
-            <span class="error__message--last_name">{{$message}}</span>
-            @enderror
-            @error('last_name')
-            <span class="error__message--first_name">{{$message}}</span>
-            @enderror
+            <div class="form__error--last_name">
+                @error('last_name')
+                <span class="error__message--last_name">{{$message}}</span>
+                @enderror
+            </div>
+
+            <div class="form__error--first_name">
+                @error('first_name')
+                <span class="error__message--first_name">{{$message}}</span>
+                @enderror
+            </div>
         </div>
 
         <div class="row2">
             <label class="form-label">性別<span>※</span></label>
             <label for="">
-                <input type="radio" name="gender" value="1" class="my-radio" {{old('gender',session('contact_form-input.gender'))==1
-                    ? 'checked' : '' }}>男性
+                <input type="radio" name="gender" value="1" class="my-radio"
+                    {{old('gender',session('contact_form-input.gender'))==1 ? 'checked' : '' }}>男性
             </label>
             <label for="">
-                <input type="radio" name="gender" value="2" class="my-radio" {{ old('gender',session('contact_form-input.gender'))==2
-                    ? 'checked' : '' }}>女性
+                <input type="radio" name="gender" value="2" class="my-radio" {{
+                    old('gender',session('contact_form-input.gender'))==2 ? 'checked' : '' }}>女性
             </label>
             <label for="">
-                <input type="radio" name="gender" value="3" class="my-radio" {{ old('gender',session('contact_form-input.gender'))==3
-                    ? 'checked' : '' }}>その他
+                <input type="radio" name="gender" value="3" class="my-radio" {{
+                    old('gender',session('contact_form-input.gender'))==3 ? 'checked' : '' }}>その他
             </label>
         </div>
         <div class="form__error">
@@ -64,14 +71,17 @@
             <label for="" class="tel__label">電話番号<span>※</span></label>
             <div class="tel__input">
                 @php
-                $telParts = session('contact_form-telparts', []); 
+                $telParts = session('contact_form-telparts', []);
                 @endphp
 
-                <input type="tel" name="tel[]" class="cotanct-form__item__tell" placeholder="080" value="{{old('tel.0',$telParts[0] ?? '')}}">
+                <input type="tel" name="tel[]" class="cotanct-form__item__tell" placeholder="080"
+                    value="{{old('tel.0',$telParts[0] ?? '')}}">
                 <div class="tel__space">-</div>
-                <input type="tel" name="tel[]" class="cotanct-form__item__tell" placeholder="1234" value="{{old('tel.1',$telParts[1] ?? '')}}">
+                <input type="tel" name="tel[]" class="cotanct-form__item__tell" placeholder="1234"
+                    value="{{old('tel.1',$telParts[1] ?? '')}}">
                 <div class="tel__space">-</div>
-                <input type="tel" name="tel[]" class="cotanct-form__item__tell" placeholder="5678" value="{{old('tel.2',$telParts[2] ?? '')}}">
+                <input type="tel" name="tel[]" class="cotanct-form__item__tell" placeholder="5678"
+                    value="{{old('tel.2',$telParts[2] ?? '')}}">
             </div>
         </div>
         <div class="form__error">
@@ -103,7 +113,8 @@
             <select name="category_id" id="">
                 <option value="" disabled selected>選択してください</option>
                 @foreach($categories as $category)
-                <option value="{{ $category->id }}" {{ old('category_id',session('contact_form-input.category_id'))==$category->id ?
+                <option value="{{ $category->id }}" {{
+                    old('category_id',session('contact_form-input.category_id'))==$category->id ?
                     'selected' : '' }}>
                     {{ $category->content }}
                 </option> @endforeach

@@ -19,7 +19,7 @@
 .header__text h2 {
     color: #a5a298;
     font-family: "Segoe UI Variable Display", "Segoe UI", sans-serif;
-    font-weight: 700 !important;
+    font-weight: 700;
 }
 
 .header__nav ul li a {

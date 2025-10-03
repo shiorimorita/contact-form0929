@@ -1,13 +1,10 @@
 .thanks__content {
 
     position: relative;
-    height: 50vh;
-    /* 高さを指定して中央に余裕を作る */
+    height: 40vh;
     display: flex;
     justify-content: center;
-    /* 横中央 */
     align-items: center;
-    /* 縦中央 */
     text-align: center;
 }
 
@@ -16,11 +13,12 @@ p {
     font-weight: bold;
     text-align: center;
     font-size: 1.2rem;
+    margin-bottom: 0px;
 }
 
 .thanks__overlay {
     position: absolute;
-    font-size: 10rem;
+    font-size: 8rem;
     color: rgba(0, 0, 0, 0.1);
     top: 50%;
     left: 50%;
@@ -29,11 +27,13 @@ p {
 }
 
 .home__button{
-    width: 5%;
-    margin: 0 auto;
+    width: 8%;
+    margin: 0px auto;
+    margin-bottom: 0px;
 }
 
 .home__button a{
+    width: 100%;
     display: block;
     padding: 10px 20px;
     text-align: center;

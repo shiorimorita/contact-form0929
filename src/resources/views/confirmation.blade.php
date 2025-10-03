@@ -28,30 +28,30 @@
             </tr>
 
             <tr>
-                <th class="confirm__header"></th>
+                <th class="confirm__header">電話番号</th>
                 <td><input type="text" name="tel" value="{{$confirm['tel']}} " readonly></td>
             </tr>
 
             <tr>
-                <th class="confirm__header"></th>
+                <th class="confirm__header">住所</th>
                 <td><input type="text" name="address" value="{{$confirm['address']}} " readonly></td>
             </tr>
 
             <tr>
-                <th class="confirm__header"></th>
+                <th class="confirm__header">建物名</th>
                 @if(! empty($confirm['building']))
                 <td><input type="text" name="building" value="{{$confirm['building']}} " readonly></td>
                 @endif
             </tr>
             <tr>
-                <th class="confirm__header"></th>
+                <th class="confirm__header">お問い合わせの種類</th>
                 <td>
                     <input type="text" name="" value="{{$category->content}}" readonly>
                     <input type="hidden" name="category_id" value="{{$category->id}}">
                 </td>
             </tr>
             <tr>
-                <th class="confirm__header"></th>
+                <th class="confirm__header">お問い合わせ内容</th>
                 <td> <textarea id="" name="detail" readonly cols="60" rows="5">{{$confirm['detail']}}</textarea></td>
             </tr>
         </table>

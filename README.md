@@ -15,6 +15,7 @@
 + docker-compose exec php bash
 + composer install
 + .env.example ファイルから .env を作成し、環境変数を変更
++ docker-compose exec php bash を実行後、以下を実行 
 + php artisan key:generate
 + php artisan migrate
 + php artisan db:seed
