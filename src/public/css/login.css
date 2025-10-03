@@ -71,8 +71,15 @@ h2 {
     opacity: 0.7;
 }
 
+/* error message */
+
+.danger__alert {
+    min-height: 25px;
+    line-height: 25px;
+}
 
 .danger__alert--message {
     color: maroon;
     font-size: 14px;
+    margin: 0
 }

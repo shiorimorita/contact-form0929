@@ -78,8 +78,16 @@ class ContactController extends Controller
     }
 
     /* csv export */
-    public function exportCsv(){
-    $items = Contact::with('category')->get();
+
+    public function exportCsv(Request $request){
+
+    /* 検索条件の取得 */
+    $name_email=$request->input('name_email');
+    $gender=$request->input('gender');
+    $date=$request->input('date');
+    $category_content=$request->input('category_content');
+
+    $items = Contact::with('category')->allSearch($name_email,$gender,$date,$category_content)->get();
     $filename = 'contact_list_' . date('Y-m-d_His') . '.csv';
 
     $headers = [
@@ -116,56 +124,6 @@ class ContactController extends Controller
     };
 
     return response()->stream($callback, 200, $headers);
-}
-
-/* csv import */
-
-public function importCsv(Request $request)
-{
-    $file=$request->file('csvFile');
-    $path=$file->getRealPath();
-
-    $fp=fopen($path,'r');
-    $header=fgetcsv($fp);
-    if($header){
-        $header[0]=preg_replace('/^\xEF\xBB\xBF/','',$header[0]);
-    }
-
-    while(($csvData=fgetcsv($fp)) !==false)
-    {
-        $last_name=$csvData[0];
-        $first_name=$csvData[1];
-        $gender=$csvData[2];
-        $email=$csvData[3];
-        $tel=$csvData[4];
-        $address=$csvData[5];
-        $detail=$csvData[6];
-        $category_id=$csvData[7];
-
-        if(empty($last_name) || empty($first_name) ||empty($email)){
-            continue;
-        }
-
-        $contact=new \App\Models\Contact();
-        $contact->first_name=$first_name;
-        $contact->last_name=$last_name;
-        $contact->gender=$gender;
-        $contact->email=$email;
-        $contact->tel=$tel;
-        $contact->address=$address;
-        $contact->detail=$detail;
-        $contact->category_id=$category_id;
-        $contact->save();
-    }
-
-
-
-    fclose($fp);
-
-    return redirect('/admin');
-
-    
-
 }
 
 
