@@ -13,7 +13,7 @@
         <div class="login-form">
             @csrf
             <p class="form__text">メールアドレス</p>
-            <input type="email" name="email" class="form__text--input" placeholder="例: test@example.com">
+            <input type="email" name="email" class="form__text--input" placeholder="例: test@example.com" value="{{old('email')}}">
             <div class="danger__alert">
             @error('email')
             <p class="danger__alert--message">{{$message}}</p>

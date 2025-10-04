@@ -12,7 +12,7 @@
         <div class="register-form">
             @csrf
             <p class="form__text">お名前</p>
-            <input type="text" name="name" class="form__text--input" placeholder="例: 山田  太郎">
+            <input type="text" name="name" class="form__text--input" placeholder="例: 山田  太郎" value="{{old('name')}}">
                 <div class="danger__alert">
                 @error('name')
                 <p class="danger__alert--message"> {{$message}}</p>
@@ -20,7 +20,7 @@
                 </div>
 
             <p class="form__text">メールアドレス</p>
-            <input type="email" name="email" class="form__text--input" placeholder="例: test@example.com">
+            <input type="email" name="email" class="form__text--input" placeholder="例: test@example.com" value="{{old('email')}}">
 
             <div class="danger__alert">
             @error('email')

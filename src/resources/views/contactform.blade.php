@@ -70,18 +70,15 @@
         <div class="content__item___tel">
             <label for="" class="tel__label">電話番号<span>※</span></label>
             <div class="tel__input">
-                @php
-                $telParts = session('contact_form-telparts', []);
-                @endphp
 
                 <input type="tel" name="tel[]" class="cotanct-form__item__tell" placeholder="080"
-                    value="{{old('tel.0',$telParts[0] ?? '')}}">
+                    value="{{old('tel.0',session('contact_form-telparts')[0] ?? '')}}">
                 <div class="tel__space">-</div>
                 <input type="tel" name="tel[]" class="cotanct-form__item__tell" placeholder="1234"
-                    value="{{old('tel.1',$telParts[1] ?? '')}}">
+                    value="{{old('tel.1',session('contact_form-telparts')[1] ?? '')}}">
                 <div class="tel__space">-</div>
                 <input type="tel" name="tel[]" class="cotanct-form__item__tell" placeholder="5678"
-                    value="{{old('tel.2',$telParts[2] ?? '')}}">
+                    value="{{old('tel.2',session('contact_form-telparts')[2] ?? '')}}">
             </div>
         </div>
         <div class="form__error">

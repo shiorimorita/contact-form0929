@@ -56,8 +56,11 @@
 }
 
 .delete__button{
+    position: absolute;
+    bottom: -60px;
+    left: 45%;
+    transform: translateX(-50%);
     width: 10%;
-    margin: 95px auto;
 }
 
 .delete__button--submit{

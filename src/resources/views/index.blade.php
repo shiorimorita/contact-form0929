@@ -4,6 +4,9 @@
 @endsection
 
 @section('content')
+@if(session('message'))
+{{session('message')}}
+@endif
 
 <div class="content__header">
     <div class="header">

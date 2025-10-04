@@ -48,14 +48,6 @@ class ContactController extends Controller
         return view('thanks');
     }
 
-    /* admin view */
-
-    // public function index(){
-    //     $contacts=Contact::with('category')->get();
-    //     $categories=Category::all();
-    //     return view('index',compact('contacts','categories'));
-    // }
-
     /* delete action */
 
     public function delete(Request $request)
