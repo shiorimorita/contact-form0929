@@ -114,6 +114,19 @@ span {
     inline-size: 1.5rem;
     block-size: 1.0rem;
     margin-left: 50px;
+    position: relative;
+}
+
+.my-radio:checked::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1rem;
+    height: 1rem;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: #8b7969;
 }
 
 .content__item,
@@ -147,6 +160,15 @@ input,
     color: white;
     border: none;
     border-radius: 2px;
+}
+
+.cotanct-form__item__tell::placeholder {
+    text-align: center;
+}
+
+input:not(.cotanct-form__item__tell)::placeholder,
+textarea::placeholder {
+   padding-left: 10px;
 }
 
 /* error */
